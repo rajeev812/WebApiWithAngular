@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE html>
+
+<html ng-app="EmployeeModule">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Angular</title>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/MyModelFun/Model.js"></script>
+    <script src="~/MyModelFun/Service.js"></script>
+    <script src="~/MyModelFun/Controller.js"></script>
+</head>
+<body>
+    <div>
+
+        <table id="tblContainer" ng-controller="EmployeeController">
+            <tr>
+                <td>
+                    <table id="tblCRUD">
+                        <tr>
+                            <td>
+                                <span>Id</span>
+                            </td>
+                            <td>
+                                <input type="text" id="eno" readonly="readonly" ng-model="id" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Name</span>
+                            </td>
+                            <td>
+                                <input type="text" id="ename" required ng-model="Name" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Address</span>
+                            </td>
+                            <td>
+                                <input type="text" id="salary" required ng-model="Address" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Salary</span>
+                            </td>
+                            <td>
+                                <input type="text" id="salary" required ng-model="Salary" />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="button" id="new" value="New" ng-click="clear()" />
+                            </td>
+                            <td>
+                                <input type="button" id="save" value="Save" ng-click="save()" />
+                            </td>
+                            <td>
+                                <input type="button" id="delete" value="Delete" ng-click="delete()" />
+                            </td>
+                        </tr>
+                    </table>
+                    @*<div>{{Message}}</div>*@
+                </td>
+                <td>
+                    <div id="dvcollection">
+                        <table id="tblcollections">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                            <tbody ng-repeat="Emp in Employees">
+                                <tr ng-click="get(Emp)">
+                                    <td> <span>{{Emp.Id}}</span></td>
+                                    <td> <span>{{Emp.Name}}</span></td>
+                                    <td> <span>{{Emp.Address}}</span></td>
+                                    <td> <span>{{Emp.Salary}}</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
